@@ -1135,11 +1135,19 @@ void FluxboxWindow::updateSizeHints() {
 void FluxboxWindow::grabButtons() {
 
     // needed for click to focus
+/*
+    // Seems to cause problems in Chromium/electron apps, see:
+    // * https://bugs.chromium.org/p/chromium/issues/detail?id=713746
+    // * https://github.com/microsoft/vscode/issues/124895
+    // * etc.
+    // Hint from: https://sourceforge.net/p/fluxbox/bugs/1187/#2b54/5ab0
+    // Commenting this block did not cause issues for me
     XGrabButton(display, Button1, AnyModifier,
                 frame().window().window(), True, ButtonPressMask,
                 GrabModeSync, GrabModeSync, None, None);
     XUngrabButton(display, Button1, Mod1Mask|Mod2Mask|Mod3Mask,
                   frame().window().window());
+*/
 }
 
 
